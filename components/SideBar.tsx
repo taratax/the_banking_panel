@@ -6,9 +6,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import Footer from './Footer'
+import PlaidLink from './PlaidLink'
 
 const SideBar = ({user}:SiderbarProps) => {
     const pathName = usePathname()
+    console.log(`GK SideBar PathName: ${pathName}`)
+  
   return (
     <section className='sidebar'> 
     <nav className='flex flex-col gap-4'>
@@ -42,7 +45,7 @@ const SideBar = ({user}:SiderbarProps) => {
             </Link>
             )
         })}
-        USER
+        <PlaidLink user={user}/>
     </nav>
    <Footer user={user} />
     </section>

@@ -79,18 +79,18 @@ const AuthForm = ({type} : { type: string }) => {
        const newUser = await signUp(userData);
        setUser(newUser)
 
-        return
       }
 
       //sign-in logic
+      if(type === 'sign-in') {
       const response = await signIn({
-        email: data.email,
+        email1: data.email,
         password: data.password,
       })
 
-      if (response) {
-        router.push("/")
-      }
+      if (response) router.push("/")
+
+    }
 
     } catch ( error ) {
         console.log(`GK error: <${error}>`)
@@ -124,7 +124,6 @@ const AuthForm = ({type} : { type: string }) => {
         </header>
         {user ? (
             <div className='flex flex-col gap-4'>
-                {/* PlaidLink */}
                 <PlaidLink user={user} variant='primary'/>
             </div>
          ) : ( 
